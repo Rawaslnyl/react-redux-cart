@@ -4,43 +4,33 @@ console.log(actionTypes);
 
 export const getProducts = () => {
   return dispatch => {
-    axios.get('http://localhost:3008/products').then(res => {
-      dispatch({
-        type: actionTypes.GET_PRODUCTS,
-        products: res.data
-      });
-    });
-  };
-};
-export const addToCart = (id, newInventory) => {
-  return dispatch => {
     axios
-      .patch(`http://localhost:3008/products/${id}`, newInventory)
-      .then(() => {
+      .get(
+        'https://raw.githubusercontent.com/Rawaslnyl/react-redux-cart/master/api/db.json'
+      )
+      .then(res => {
         dispatch({
-          type: actionTypes.ADD_TO_CART,
-          id
+          type: actionTypes.GET_PRODUCTS,
+          products: res.data.products
         });
       });
+  };
+};
+export const addToCart = id => {
+  return {
+    type: actionTypes.ADD_TO_CART,
+    id
   };
 };
 export const checkoutCart = id => {
-  return dispatch => {
-    dispatch({
-      type: actionTypes.CHECKOUT_CART,
-      id
-    });
+  return {
+    type: actionTypes.CHECKOUT_CART,
+    id
   };
 };
-export const subProductQuantity = (id, newInventory) => {
-  return dispatch => {
-    axios
-      .patch(`http://localhost:3008/products/${id}`, newInventory)
-      .then(() => {
-        dispatch({
-          type: actionTypes.SUB_PRODUCT_QUANTITY,
-          id
-        });
-      });
+export const subProductQuantity = id => {
+  return {
+    type: actionTypes.SUB_PRODUCT_QUANTITY,
+    id
   };
 };
