@@ -1,0 +1,22 @@
+{
+  "products": [
+    {
+      "id": "45424f",
+      "goodsName": "三只松鼠",
+      "price": 42.8,
+      "inventory": 46
+    },
+    {
+      "id": "5421424f",
+      "goodsName": "乐事 无限薯片",
+      "price": 42.8,
+      "inventory": 28
+    },
+    {
+      "id": "12121111111424f",
+      "goodsName": "科尔 肉铺",
+      "price": 42.8,
+      "inventory": 26
+    }
+  ]
+}
